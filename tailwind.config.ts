@@ -1,5 +1,3 @@
-import { error } from "console";
-import { text } from "stream/consumers";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
