@@ -49,7 +49,7 @@ export const Section = ({ title, variant = 'grid', items }: ISectionProps) => {
                     <button
                         disabled={scrollAlt == 'start'}
                         onClick={() => handleSetScroll(-350)}
-                        className='h-14 w-14 bg-primary rounded-full flex items-center justify-center sticky my-auto left-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80'>
+                        className='h-14 w-14 bg-primary rounded-full hidden sm:flex items-center justify-center sticky my-auto left-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80'>
                         <MdKeyboardArrowLeft size={32} />
                     </button>
                 )}
@@ -69,7 +69,7 @@ export const Section = ({ title, variant = 'grid', items }: ISectionProps) => {
                     <button
                         disabled={scrollAlt == 'end'}
                         onClick={() => handleSetScroll(350)}
-                        className='h-14 w-14 bg-primary rounded-full flex items-center justify-center sticky my-auto right-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80'>
+                        className='h-14 w-14 bg-primary rounded-full hidden sm:flex items-center justify-center sticky my-auto right-0 -ml-14 transition-opacity disabled:opacity-0 active:opacity-80'>
                         <MdKeyboardArrowRight size={32} />
                     </button>
                 )}
