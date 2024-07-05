@@ -9,7 +9,7 @@ export default function PageHome() {
   return (
     <main className='mt-8 flex justify-center'>
 
-      <div className='min-[880px]:max-w-[880px]'>
+      <div className='max-w-full min-[880px]:max-w-[880px]'>
         <Section
           title={'Veja mais cursos'}
           variant='h-list'
