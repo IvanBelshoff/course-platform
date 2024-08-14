@@ -11,7 +11,7 @@ export default function pageCursos() {
   return (
     <main className='mt-8 flex justify-center'>
 
-      <div className='min-[880px]:max-w-[880px]'>
+      <div className='w-full min-[880px]:max-w-[880px]'>
         <Section
           title={'Todos os cursos'}
           variant='grid'
