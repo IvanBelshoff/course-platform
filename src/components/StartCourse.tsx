@@ -20,7 +20,7 @@ export const StartCourse: React.FC<IStartCourseProps> = ({ idClass, idCouser, im
 
     return (
         <>
-            <div ref={ref} className='p-3 bg-paper rounded-md flex flex-col gap-4'>
+            <div ref={ref} className='p-3 bg-paper rounded-md flex flex-col gap-4 md:sticky md:top-[104px]'>
                 <Link
                     href={`/player/${idCouser}/${idClass}`}
                     style={{ backgroundImage: `url(${imageUri})` }}
@@ -32,7 +32,7 @@ export const StartCourse: React.FC<IStartCourseProps> = ({ idClass, idCouser, im
                 </Link>
                 <Link
                     href={`/player/${idCouser}/${idClass}`}
-                    className='bg-primary p-2 px-3 rounded text-center'
+                    className='bg-primary p-2 px-3 rounded text-center hover:no-underline'
                 >
                     Começar curso
                 </Link>
@@ -45,7 +45,7 @@ export const StartCourse: React.FC<IStartCourseProps> = ({ idClass, idCouser, im
                     </h1>
                     <Link
                         href={`/player/${idCouser}/${idClass}`}
-                        className='bg-primary p-2 px-3 rounded text-center'
+                        className='bg-primary p-2 px-3 rounded text-center hover:no-underline'
                     >
                         Começar curso
                     </Link>
