@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 
 import { CourseHeader } from '@/components/couser-header/CourseHeader';
 import { StartCourse } from '@/components/StartCourse';
+import { Class } from '@/components/course-content/components/Class';
 
 interface Props {
     params: { id: string }
@@ -23,12 +24,11 @@ export default function pageCourseDetail({ params }: Props) {
                 </div>
                 <div className='flex-[2]'>
                     <CourseHeader />
-                    <CourseHeader />
-                    <CourseHeader />
-                    <CourseHeader />
-                    <CourseHeader />
+                    <Class
+                        playerUrl={`/player/{courseId}/{classId}`}
+                        title='Figma para DEVs: #00 - Apresentação do curso'
+                    />
                 </div>
-
             </div>
         </main>
     );
