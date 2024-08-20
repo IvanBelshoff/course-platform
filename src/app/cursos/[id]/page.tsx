@@ -28,9 +28,13 @@ export default function pageCourseDetail({ params }: Props) {
                         idCouser='1'
                         imageUri='https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg' />
                 </div>
-                <div className='flex-[2] flex flex-col gap-12'>
+                <div className='flex-[2] flex flex-col gap-12 pb-12'>
 
-                    <CourseHeader />
+                    <CourseHeader
+                        title='Curso de Figma para Devs'
+                        description='Aprenda a usar o Figma para criar interfaces de forma rápida e eficiente.'
+                        numberOfclasses={48}
+                    />
 
                     <CourseContent classGroups={[
                         {

@@ -20,9 +20,6 @@ export const CourseContent: React.FC<ICourseContentProps> = ({ classGroups }) =>
                 ))}
             </ol>
 
-
-
         </div>
-
     );
 };
