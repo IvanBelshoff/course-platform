@@ -4,7 +4,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 import { Class } from "./Class";
 
-interface IClassGroupProps {
+export interface IClassGroupProps {
     title: string;
     courseId: string;
     classes: Array<{ id: string, title: string }>
@@ -17,7 +17,7 @@ export const ClassGroup: React.FC<IClassGroupProps> = ({ classes, courseId, titl
     return (
         <>
             <button
-                className='flex items-center gap-6 p-4 bg-paper rounded'
+                className='flex items-center gap-6 p-4 bg-paper'
                 onClick={() => setOpen(!open)}
             >
                 {open ? (<MdKeyboardArrowDown size={24} />) : (<MdKeyboardArrowUp size={24} />)}

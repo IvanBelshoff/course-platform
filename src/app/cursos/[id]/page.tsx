@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { CourseHeader } from '@/components/couser-header/CourseHeader';
 import { StartCourse } from '@/components/StartCourse';
 import { ClassGroup } from '@/components/course-content/components/ClassGroup';
+import { CourseContent } from '@/components/course-content/CourseContent';
 
 interface Props {
     params: { id: string }
@@ -27,16 +28,31 @@ export default function pageCourseDetail({ params }: Props) {
                         idCouser='1'
                         imageUri='https://i.ytimg.com/vi/SVepTuBK4V0/hqdefault.jpg' />
                 </div>
-                <div className='flex-[2] flex flex-col gap-4'>
+                <div className='flex-[2] flex flex-col gap-12'>
+
                     <CourseHeader />
-                    <ClassGroup
-                        title={'Introdução e apresentação do projeto'}
-                        courseId={'123'}
-                        classes={[
-                            { id: '1', title: 'Figma para DEVs: #00 - Apresentação do curso' },
-                            { id: '2', title: 'Figma para DEVs: #01 - Apresentação do curso' },
-                            { id: '3', title: 'Figma para DEVs: #02 - Apresentação do curso' },
-                        ]} />
+
+                    <CourseContent classGroups={[
+                        {
+                            title: 'Introdução e apresentação do projeto',
+                            courseId: '123',
+                            classes: [
+                                { id: '1', title: 'Figma para DEVs: #00 - Apresentação do curso' },
+                                { id: '2', title: 'Figma para DEVs: #01 - Apresentação do curso' },
+                                { id: '3', title: 'Figma para DEVs: #02 - Apresentação do curso' },
+                            ],
+                        },
+                        {
+                            title: 'Introdução e apresentação do projeto',
+                            courseId: '1232',
+                            classes: [
+                                { id: '1', title: 'Figma para DEVs: #00 - Apresentação do curso' },
+                                { id: '2', title: 'Figma para DEVs: #01 - Apresentação do curso' },
+                                { id: '3', title: 'Figma para DEVs: #02 - Apresentação do curso' },
+                            ],
+                        }
+                    ]} />
+
                 </div>
             </div>
         </main>
