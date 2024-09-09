@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Section } from "@/components/section/Section";
+import { KeepWatching } from "@/components/KeepWatching";
 
 export const metadata: Metadata = {
   title: "CodarSe - Página Inicial",
@@ -9,7 +10,10 @@ export default function PageHome() {
   return (
     <main className='mt-8 flex justify-center'>
 
-      <div className='max-w-full min-[880px]:max-w-[880px]'>
+      <div className='max-w-full min-[880px]:max-w-[880px] flex flex-col gap-4'>
+
+        <KeepWatching />
+
         <Section
           title={'Veja mais cursos'}
           variant='h-list'
@@ -238,7 +242,7 @@ export default function PageHome() {
 
               #typescript #cursotypescript #javascript #cursodejavascript #reactetypescript #learningtypescript #learningjavascript`
             }
-          ]} 
+          ]}
         />
 
       </div>
