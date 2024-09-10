@@ -9,7 +9,7 @@ interface Props {
     }
 }
 
-export default function pagePlayer({ params: { classId, courseId } }: Props) {
+export default function PagePlayer({ params: { classId, courseId } }: Props) {
 
     const [open, setOpen] = useState<boolean>(false);
 
