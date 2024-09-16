@@ -11,7 +11,9 @@ interface IPlayerPlaylistProps {
 
 export const PlayerPlaylist: React.FC<IPlayerPlaylistProps> = ({ classGroups, playingClassId, playingCourseId }) => {
 
-    const [openedIndex, setOpenedIndex] = useState<number | undefined>(undefined);
+    const [openedIndex, setOpenedIndex] = useState<number | undefined>(
+        classGroups.findIndex((classGroup) => classGroup.classes.some((classItem) => classItem.classId === playingClassId))
+    );
 
     const handleToggle = (index: number) => {
         setOpenedIndex((prevIndex) => (prevIndex === index ? undefined : index));
@@ -20,7 +22,7 @@ export const PlayerPlaylist: React.FC<IPlayerPlaylistProps> = ({ classGroups, pl
     const router = useRouter();
 
     return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 h-full'>
 
             <div className='flex flex-col p-4 bg-paper'>
                 <h3 className='text-lg font-bold'>
@@ -28,7 +30,7 @@ export const PlayerPlaylist: React.FC<IPlayerPlaylistProps> = ({ classGroups, pl
                 </h3>
             </div>
 
-            <ol>
+            <ol className='overflow-auto overflow-primary'>
                 {classGroups.map((classGroupItem, index) => (
                     <li key={classGroupItem.title}>
                         <PlayerClassGroup
