@@ -1,4 +1,4 @@
-import { PlayerHeader, PlayerPlaylist } from '@/components/player';
+import { PlayerHeader, PlayerPlaylist, PlayerVideoPlayer } from '@/components/player';
 import React from 'react';
 
 interface Props {
@@ -164,11 +164,13 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                                     }
                                 ]
                             }
-                        ]}                     />
+                        ]} />
                 </div>
 
                 <div className='flex-1'>
-                    Player
+                    <PlayerVideoPlayer
+                        videoId={'bP47qRVRqQs'}
+                    />
                 </div>
 
             </div>
