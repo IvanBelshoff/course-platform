@@ -22,7 +22,7 @@ export const PlayerPlaylist: React.FC<IPlayerPlaylistProps> = ({ classGroups, pl
     const router = useRouter();
 
     return (
-        <div className='flex flex-col gap-2 h-full'>
+        <div className='flex flex-col gap-2 h-full max-w-96'>
 
             <div className='flex flex-col p-4 bg-paper'>
                 <h3 className='text-lg font-bold'>

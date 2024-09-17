@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 import { MdPlayCircle } from 'react-icons/md';
