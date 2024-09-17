@@ -11,10 +11,14 @@ interface IPlayerVideoPlayerProps {
 
 export const PlayerVideoPlayer: React.FC<IPlayerVideoPlayerProps> = ({ videoId }) => {
     return (
-        <div>
+        <>
             <ReactPlayer
+                height='100%'
+                width='100%'
+                playing={true}
+                controls={true}
                 url={`https://www.youtube.com/watch?v=${videoId}`}
             />
-        </div>
+        </>
     );
 };
