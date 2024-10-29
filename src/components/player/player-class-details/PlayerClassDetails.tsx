@@ -1,17 +1,23 @@
 'use client';
-
-import { useRouter } from 'next/navigation';
-import React, { useMemo } from 'react';
-import { IPlayerClassGroupProps, PlayerVideoPlayer } from '..';
+import { useMemo } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
+import { useRouter } from 'next/navigation';
+
+import { IPlayerClassGroupProps, PlayerVideoPlayer } from '..';
+import { CourseHeader } from '@/components/couser-header/CourseHeader';
 
 interface IPlayerClassDetailsProps {
+    course: {
+        title: string;
+        description: string;
+        numberOfClasses: number;
+    };
     playingCourseId: string;
     playingClassId: string;
     classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[]
 }
 
-export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playingCourseId, classGroups, playingClassId }) => {
+export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playingCourseId, classGroups, playingClassId, course }) => {
 
     const router = useRouter();
 
@@ -33,7 +39,7 @@ export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playing
 
 
     return (
-        <div className='flex-1'>
+        <div className='flex-1 overflow-auto pb-10'>
 
             <div className='aspect-video'>
                 <PlayerVideoPlayer
@@ -67,7 +73,11 @@ export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playing
                     Comentários da aula
                 </Tabs.Content>
                 <Tabs.Content value='course-details'>
-                    Detalhes do curso
+                    <CourseHeader
+                        title={course.title}
+                        description={course.description}
+                        numberOfclasses={course.numberOfClasses}
+                    />
                 </Tabs.Content>
             </Tabs.Root>
 

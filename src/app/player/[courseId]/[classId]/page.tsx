@@ -174,6 +174,11 @@ export default function PagePlayer({ params: { classId, courseId } }: Props) {
                     playingClassId={classId}
                     playingCourseId={courseId}
                     classGroups={classGroupsData}
+                    course={{
+                        title: 'NextJS, TailwindCSS e Typescript: #00 - Apresentação do projeto',
+                        description: 'Aprenda a criar um site com NextJS, TailwindCSS e Typescript Aprenda a criar um site com NextJS, TailwindCSS e Typescript Aprenda a criar um site com NextJS, TailwindCSS e Typescript Aprenda a criar um site com NextJS, TailwindCSS e Typescript Aprenda a criar um site com NextJS, TailwindCSS e Typescript Aprenda a criar um site com NextJS, TailwindCSS e Typescript',
+                        numberOfClasses: 3
+                    }}
                 />
 
             </div>

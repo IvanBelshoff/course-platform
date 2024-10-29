@@ -27,7 +27,7 @@ export const CourseHeader: React.FC<ICourseHeaderProps> = ({ title, description,
                         Compartilhar
                     </button>
                 </CopyContent>
-                <span>{numberOfclasses}</span>
+                <span>{numberOfclasses} aulas</span>
             </div>
         </div>
     );
