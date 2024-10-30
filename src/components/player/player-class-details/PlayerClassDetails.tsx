@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { IPlayerClassGroupProps, PlayerVideoPlayer } from '..';
 import { CourseHeader } from '@/components/couser-header/CourseHeader';
+import { PlayerClassHeader } from './components/PlayerClassHeader';
 
 interface IPlayerClassDetailsProps {
     course: {
@@ -12,12 +13,16 @@ interface IPlayerClassDetailsProps {
         description: string;
         numberOfClasses: number;
     };
+    classItem: {
+        title: string;
+        description: string;
+    };
     playingCourseId: string;
     playingClassId: string;
     classGroups: Pick<IPlayerClassGroupProps, 'title' | 'classes'>[]
 }
 
-export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playingCourseId, classGroups, playingClassId, course }) => {
+export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playingCourseId, classGroups, playingClassId, course, classItem }) => {
 
     const router = useRouter();
 
@@ -64,10 +69,13 @@ export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playing
                     >Visão geral do curso</Tabs.Trigger>
                 </Tabs.List>
 
-                <hr className='border-paper' />
+                <hr className='border-paper mb-2' />
 
                 <Tabs.Content value='class-details'>
-                    Detalhes da aula
+                    <PlayerClassHeader
+                        title={classItem.title}
+                        description={classItem.description}
+                    />
                 </Tabs.Content>
                 <Tabs.Content value='class-comments'>
                     Comentários da aula
