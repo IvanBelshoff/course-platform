@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { IPlayerClassGroupProps, IPlayerVideoPlayerRef, PlayerVideoPlayer } from '..';
 import { CourseHeader } from '@/components/couser-header/CourseHeader';
 import { PlayerClassHeader } from './components/PlayerClassHeader';
+import { Comments } from './components/comments/Comments';
 
 interface IPlayerClassDetailsProps {
     course: {
@@ -73,17 +74,19 @@ export const PlayerClassDetails: React.FC<IPlayerClassDetailsProps> = ({ playing
 
                 <hr className='border-paper mb-2' />
 
-                <Tabs.Content value='class-details'>
+                <Tabs.Content value='class-details' className='px-2'>
                     <PlayerClassHeader
                         title={classItem.title}
                         description={classItem.description}
                         onTimeClick={(seconds) => playerVideoPlayerRef.current?.setProgress(seconds)}
                     />
                 </Tabs.Content>
-                <Tabs.Content value='class-comments'>
-                    Comentários da aula
+                <Tabs.Content value='class-comments' className='px-2'>
+                    <Comments
+
+                    />
                 </Tabs.Content>
-                <Tabs.Content value='course-details'>
+                <Tabs.Content value='course-details' className='px-2'>
                     <CourseHeader
                         title={course.title}
                         description={course.description}

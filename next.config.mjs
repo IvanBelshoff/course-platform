@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "i.ytimg.com",
       },
+      {
+        protocol: "http",
+        hostname: "10.86.177.250",
+      },
     ],
   },
 };
