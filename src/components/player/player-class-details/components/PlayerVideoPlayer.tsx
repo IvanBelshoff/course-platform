@@ -1,8 +1,9 @@
 'use client';
-import React, { useMemo, useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useMemo, useRef, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 import { MdPlayCircle } from 'react-icons/md';
+import type TReactPlayer from 'react-player';
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 interface IPlayerVideoPlayerProps {
@@ -10,7 +11,15 @@ interface IPlayerVideoPlayerProps {
     onPlayNext: () => void;
 }
 
-export const PlayerVideoPlayer: React.FC<IPlayerVideoPlayerProps> = ({ videoId, onPlayNext }) => {
+export interface IPlayerVideoPlayerRef {
+    setProgress: (seconds: number) => void;
+}
+
+// eslint-disable-next-line react/display-name
+export const PlayerVideoPlayer = forwardRef<IPlayerVideoPlayerRef, IPlayerVideoPlayerProps>(({ videoId, onPlayNext }, playerRefToForward) => {
+
+    const playerRef = useRef<TReactPlayer>();
+    const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [progress, setProgress] = useState<number | undefined>(undefined);
     const [totalDuration, setTotalDuration] = useState<number | undefined>(undefined);
@@ -30,9 +39,18 @@ export const PlayerVideoPlayer: React.FC<IPlayerVideoPlayerProps> = ({ videoId, 
 
     }, [secondsUntilEnd]);
 
+    useImperativeHandle(playerRefToForward, () => {
+        return {
+            setProgress: (seconds) => {
+                playerRef.current?.seekTo(seconds, 'seconds');
+                wrapperRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    }, []);
 
     return (
-        <>
+        <div ref={wrapperRef} className='h-full'>
+            
             {showNextButton && (
                 <button
                     className='bg-primary p-3 px-4 rounded-lg font-bold flex items-center gap-2 absolute right-4 top-36'
@@ -43,6 +61,7 @@ export const PlayerVideoPlayer: React.FC<IPlayerVideoPlayerProps> = ({ videoId, 
             )}
 
             <ReactPlayer
+                onReady={(ref) => playerRef.current = ref}
                 height='100%'
                 width='100%'
                 playing={true}
@@ -52,6 +71,6 @@ export const PlayerVideoPlayer: React.FC<IPlayerVideoPlayerProps> = ({ videoId, 
                 onEnded={onPlayNext}
                 url={`https://www.youtube.com/watch?v=${videoId}`}
             />
-        </>
+        </div>
     );
-};
+});
