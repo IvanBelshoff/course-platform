@@ -1,8 +1,13 @@
 import { youtube } from "@googleapis/youtube";
 
+const fetchWithNextConfig = (nextConfig?: NextFetchRequestConfig): typeof fetch => (input, params = {}) => {
+    return fetch(input, { ...params, next: nextConfig });
+};
+
 const YouTubeAPIClient = youtube({
     version: "v3",
-    auth: process.env.YOUTUBE_API_KEY
+    auth: process.env.YOUTUBE_API_KEY,
+    fetchImplementation: fetchWithNextConfig()
 });
 
 export const APIYoutube = {
@@ -13,7 +18,7 @@ export const APIYoutube = {
                 maxResults: 50,
                 part: ["snippet"],
                 channelId: process.env.YOUTUBE_CHANNEL_ID,
-            });
+            }, { fetchImplementation: fetchWithNextConfig({ revalidate: 60 * 60 * 48 }) });
 
             const courses = (data.items || []).map((playListItem) => ({
                 id: playListItem?.id || '',
